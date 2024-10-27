@@ -23,6 +23,8 @@
         </activity>
         <activity android:name=".list.ListCharacterActivity" />
         <activity android:name=".toolbar.ToolbarActivity" />
+        <activity android:name=".detail.DetailActivity" />
+
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />

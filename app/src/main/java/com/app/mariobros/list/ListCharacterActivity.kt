@@ -47,9 +47,12 @@ class ListCharacterActivity : AppCompatActivity() {
         newRecyclerView.layoutManager = LinearLayoutManager(this)
         newRecyclerView.setHasFixedSize(true)
         newArrayList = arrayListOf<List>()
+
         getUserData()
 
     }
+
+
 
     private fun getUserData() {
         for (i in imageId.indices) {
