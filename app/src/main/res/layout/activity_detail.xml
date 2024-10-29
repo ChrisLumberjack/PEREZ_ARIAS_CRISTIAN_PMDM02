@@ -40,4 +40,39 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/detail_image" />
+
+    <TextView
+        android:id="@+id/text_skills"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:fontFamily="@font/alfa_slab_one"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp"
+        android:text="Habilidades"
+        android:textAlignment="center"
+        android:shadowRadius="@integer/material_motion_duration_medium_2"
+        android:shadowColor="@color/black"
+        android:textColor="@color/white"
+        android:textSize="30sp"
+        app:layout_constraintTop_toBottomOf="@id/detail_heading"
+        tools:ignore="HardcodedText"
+        tools:layout_editor_absoluteX="0dp" />
+
+    <TextView
+        android:id="@+id/detail_skills"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/aladin"
+        android:justificationMode="inter_word"
+        android:padding="16dp"
+        android:layout_marginTop="10dp"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:shadowRadius="@integer/material_motion_duration_medium_2"
+        android:shadowColor="@color/black"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/text_skills" />
 </androidx.constraintlayout.widget.ConstraintLayout>

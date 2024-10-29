@@ -33,6 +33,7 @@ class ListAdapter(private val newsListado: ArrayList<List>, private val context:
                 val intent = Intent(context, DetailActivity::class.java).apply {
                     putExtra("IMAGE_ID", listado.titleImage)
                     putExtra("HEADING", listado.Heading)
+                    putExtra("SKILL", listado.Skills)
                 }
                 context.startActivity(intent)
             }

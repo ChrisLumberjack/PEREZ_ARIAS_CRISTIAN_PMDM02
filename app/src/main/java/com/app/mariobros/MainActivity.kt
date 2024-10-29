@@ -7,9 +7,10 @@ import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import com.app.mariobros.databinding.ActivityMainBinding
 import com.app.mariobros.list.ListCharacterActivity
+import com.app.mariobros.toolbar.BaseActivity
 import kotlin.system.exitProcess
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : BaseActivity() {
     private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {

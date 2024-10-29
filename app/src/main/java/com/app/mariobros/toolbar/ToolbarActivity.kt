@@ -1,10 +1,10 @@
 package com.app.mariobros.toolbar
 
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
+import android.view.View
 import com.app.mariobros.databinding.ActivityToolbarBinding
 
-open class ToolbarActivity : AppCompatActivity() {
+class ToolbarActivity : BaseActivity() {
 
     private lateinit var binding: ActivityToolbarBinding
 
@@ -13,12 +13,12 @@ open class ToolbarActivity : AppCompatActivity() {
         binding = ActivityToolbarBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // Configurar Toolbar como ActionBar
-        setSupportActionBar(binding.toolbar)
-
-        // Configurar botón de retroceso
+        // Configurar el botón de retroceso
         binding.toolbarArrow.setOnClickListener {
             finish()
         }
+
+
+
     }
 }

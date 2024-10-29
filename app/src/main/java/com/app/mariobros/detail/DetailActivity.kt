@@ -15,10 +15,12 @@ open class DetailActivity : AppCompatActivity(){
 
             val imageId = intent.getIntExtra("IMAGE_ID", -1)
             val heading = intent.getStringExtra("HEADING")
+            val skill = intent.getStringExtra("SKILL")
 
             if (imageId != -1 && heading != null) {
                 binding.detailImage.setImageResource(imageId)
                 binding.detailHeading.text = heading
+                binding.detailSkills.text = skill
             } else {
 
                 finish()
