@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.app.mariobros.R
 import com.app.mariobros.databinding.ActivityListCharacterBinding
 import com.app.mariobros.toolbar.BaseActivity
+import com.google.android.material.snackbar.Snackbar
 
 class ListCharacterActivity : BaseActivity() {
     private lateinit var binding: ActivityListCharacterBinding
@@ -21,6 +22,9 @@ class ListCharacterActivity : BaseActivity() {
         setContentView(binding.root)
         setSupportActionBar(binding.toolbar.toolbar)
         supportActionBar?.title = ""
+
+        Snackbar.make(binding.root, "Bienvenidos al mundo de Mario", Snackbar.LENGTH_LONG).show()
+
         binding.toolbar.toolbarArrow.setOnClickListener {
             finish()
         }

@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import com.app.mariobros.MainActivity
 import com.app.mariobros.R
+import com.app.mariobros.list.ListCharacterActivity
 
 open class BaseActivity : AppCompatActivity() {
 
@@ -37,10 +38,17 @@ open class BaseActivity : AppCompatActivity() {
                 startActivity(intent)
                 true
             }
+
+            R.id.list_character -> {
+                startActivity(Intent(this, ListCharacterActivity::class.java))
+                true
+            }
+
             R.id.acerca -> {
                 mostrarAcercaDeDialog()
                 true
             }
+
             else -> super.onOptionsItemSelected(item)
         }
     }

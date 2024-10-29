@@ -26,7 +26,7 @@
 
     <TextView
         android:id="@+id/detail_heading"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#000000"
         android:fontFamily="@font/aladin"
@@ -51,7 +51,9 @@
         android:paddingEnd="8dp"
         android:text="Habilidades"
         android:textAlignment="center"
-        android:shadowRadius="@integer/material_motion_duration_medium_2"
+        android:shadowDx="2"
+        android:shadowDy="1"
+        android:shadowRadius="4"
         android:shadowColor="@color/black"
         android:textColor="@color/white"
         android:textSize="30sp"
@@ -69,6 +71,7 @@
         android:layout_marginTop="10dp"
         android:textAlignment="center"
         android:textColor="@color/white"
+        android:background="@color/black"
         android:shadowRadius="@integer/material_motion_duration_medium_2"
         android:shadowColor="@color/black"
         android:textSize="24sp"
