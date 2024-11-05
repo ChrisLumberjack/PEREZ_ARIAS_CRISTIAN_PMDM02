@@ -55,8 +55,8 @@ open class BaseActivity : AppCompatActivity() {
 
     private fun mostrarAcercaDeDialog() {
         val builder = AlertDialog.Builder(this)
-        builder.setTitle("Acerca de")
-            .setMessage("Aplicación desarrollada por Cristian Pérez Arias. Versión 1.0.")
+        builder.setTitle(R.string.about)
+            .setMessage(R.string.text_about)
             .setIcon(R.drawable.baseline_menu_24)
             .setPositiveButton("OK") { dialog, _ -> dialog.dismiss() }
         builder.create().show()

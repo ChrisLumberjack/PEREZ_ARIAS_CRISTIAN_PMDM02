@@ -2,7 +2,7 @@ package com.app.mariobros.detail
 
 import android.os.Bundle
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
+import com.app.mariobros.R
 import com.app.mariobros.databinding.ActivityDetailBinding
 import com.app.mariobros.toolbar.BaseActivity
 
@@ -29,7 +29,7 @@ open class DetailActivity : BaseActivity() {
             binding.detailHeading.text = heading
             binding.detailSkills.text = skill
 
-            Toast.makeText(this, "Se ha seleccionado el personaje $heading", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, getString(R.string.selected_character, heading), Toast.LENGTH_SHORT).show()
         } else {
             finish() // Cierra la actividad si no hay datos válidos
         }

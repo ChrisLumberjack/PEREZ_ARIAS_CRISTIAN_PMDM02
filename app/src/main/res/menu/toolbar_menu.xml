@@ -4,11 +4,11 @@
 
     <item
         android:id="@+id/inicio"
-        android:title="Inicio" />
+        android:title="@string/start_main" />
     <item
         android:id="@+id/list_character"
-        android:title="Lista de Personajes" />
+        android:title="@string/list_character" />
     <item
         android:id="@+id/acerca"
-        android:title="Acerca de..." />
+        android:title="@string/about" />
 </menu>

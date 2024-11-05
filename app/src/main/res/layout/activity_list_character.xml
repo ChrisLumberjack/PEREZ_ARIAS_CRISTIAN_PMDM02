@@ -20,7 +20,7 @@
         android:fontFamily="@font/alfa_slab_one"
         android:paddingStart="8dp"
         android:paddingEnd="8dp"
-        android:text="Lista de personajes"
+        android:text="@string/list_character"
         android:textAlignment="center"
         android:textColor="@color/white"
         android:textSize="30sp"
