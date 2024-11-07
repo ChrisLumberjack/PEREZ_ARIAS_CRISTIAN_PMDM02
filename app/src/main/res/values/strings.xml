@@ -6,6 +6,8 @@
     <string name="skills_character">Habilidades</string>
     <string name="details_character">Detalles</string>
     <string name="about">Acerca de...</string>
+    <string name="open">Abrir</string>
+    <string name="close">Cerrar</string>
     <string name="text_about">Aplicación desarrollada por Cristian Pérez Arias. Versión 1.0.</string>
     <string name="welcome_message">Bienvenidos al mundo de Mario</string>
     <string name="selected_character">Se ha seleccionado el personaje %1$s</string>

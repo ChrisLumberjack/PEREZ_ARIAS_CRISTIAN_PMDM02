@@ -4,7 +4,7 @@ import android.os.Bundle
 import android.widget.Toast
 import com.app.mariobros.R
 import com.app.mariobros.databinding.ActivityDetailBinding
-import com.app.mariobros.toolbar.BaseActivity
+import com.app.mariobros.base.BaseActivity
 
 open class DetailActivity : BaseActivity() {
 
@@ -38,5 +38,6 @@ open class DetailActivity : BaseActivity() {
         binding.toolbar.toolbarArrow.setOnClickListener {
             finish()
         }
+
     }
 }

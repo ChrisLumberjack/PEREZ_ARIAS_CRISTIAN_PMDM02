@@ -6,6 +6,8 @@
     <string name="skills_character">Skills</string>
     <string name="details_character">Details</string>
     <string name="about">About...</string>
+    <string name="open">Open</string>
+    <string name="close">Close</string>
     <string name="text_about">Application developed by Cristian Pérez Arias. Version 1.0.</string>
     <string name="welcome_message" >Welcome to Mario\'s world</string>
     <string name="selected_character">Character %1$s has been selected</string>

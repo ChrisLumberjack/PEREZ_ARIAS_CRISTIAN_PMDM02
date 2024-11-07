@@ -5,7 +5,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.app.mariobros.R
 import com.app.mariobros.databinding.ActivityListCharacterBinding
-import com.app.mariobros.toolbar.BaseActivity
+import com.app.mariobros.base.BaseActivity
 import com.google.android.material.snackbar.Snackbar
 
 class ListCharacterActivity : BaseActivity() {

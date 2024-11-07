@@ -2,6 +2,7 @@ package com.app.mariobros.toolbar
 
 import android.os.Bundle
 import android.view.View
+import com.app.mariobros.base.BaseActivity
 import com.app.mariobros.databinding.ActivityToolbarBinding
 
 class ToolbarActivity : BaseActivity() {

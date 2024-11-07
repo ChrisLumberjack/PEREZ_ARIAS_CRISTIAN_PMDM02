@@ -1,12 +1,15 @@
-package com.app.mariobros.toolbar
+package com.app.mariobros.base
 
 import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.ImageButton
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import androidx.core.view.GravityCompat
+import androidx.drawerlayout.widget.DrawerLayout
 import com.app.mariobros.MainActivity
 import com.app.mariobros.R
 import com.app.mariobros.list.ListCharacterActivity
@@ -61,4 +64,5 @@ open class BaseActivity : AppCompatActivity() {
             .setPositiveButton("OK") { dialog, _ -> dialog.dismiss() }
         builder.create().show()
     }
+
 }
