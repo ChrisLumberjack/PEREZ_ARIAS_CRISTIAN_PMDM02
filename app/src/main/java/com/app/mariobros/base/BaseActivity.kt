@@ -16,13 +16,25 @@ import com.app.mariobros.list.ListCharacterActivity
 
 open class BaseActivity : AppCompatActivity() {
 
+    private lateinit var drawerLayout: DrawerLayout
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        // Aquí no es necesario inflar el layout en BaseActivity directamente,
+        // lo hace cada actividad que extienda de BaseActivity.
+    }
+
+    // Configurar el DrawerLayout
+    fun configureDrawer() {
+        drawerLayout = findViewById(R.id.drawer_layout)
+        val toolbarHamburger = findViewById<ImageButton>(R.id.toolbarHamburger)
+        toolbarHamburger.setOnClickListener {
+            drawerLayout.openDrawer(GravityCompat.START)
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.toolbar_menu, menu)
-
         // Cambiar el color de todos los íconos del menú a blanco
         menu?.let {
             for (i in 0 until it.size()) {
@@ -30,7 +42,6 @@ open class BaseActivity : AppCompatActivity() {
                 item.icon?.setTint(ContextCompat.getColor(this, R.color.white))
             }
         }
-
         return true
     }
 
@@ -41,17 +52,14 @@ open class BaseActivity : AppCompatActivity() {
                 startActivity(intent)
                 true
             }
-
             R.id.list_character -> {
                 startActivity(Intent(this, ListCharacterActivity::class.java))
                 true
             }
-
             R.id.acerca -> {
                 mostrarAcercaDeDialog()
                 true
             }
-
             else -> super.onOptionsItemSelected(item)
         }
     }
@@ -64,5 +72,4 @@ open class BaseActivity : AppCompatActivity() {
             .setPositiveButton("OK") { dialog, _ -> dialog.dismiss() }
         builder.create().show()
     }
-
 }

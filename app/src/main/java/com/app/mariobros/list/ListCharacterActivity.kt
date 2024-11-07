@@ -7,6 +7,9 @@ import com.app.mariobros.R
 import com.app.mariobros.databinding.ActivityListCharacterBinding
 import com.app.mariobros.base.BaseActivity
 import com.google.android.material.snackbar.Snackbar
+import androidx.drawerlayout.widget.DrawerLayout
+import androidx.core.view.GravityCompat
+import android.widget.ImageButton
 
 class ListCharacterActivity : BaseActivity() {
     private lateinit var binding: ActivityListCharacterBinding
@@ -20,14 +23,23 @@ class ListCharacterActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityListCharacterBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        // Llamamos al método para configurar el DrawerLayout
+        configureDrawer()  // Esto es lo que necesitas para activar el DrawerLayout
+
+        // Configurar el Toolbar
         setSupportActionBar(binding.toolbar.toolbar)
         supportActionBar?.title = ""
 
+        // Mostrar un Snackbar con un mensaje de bienvenida
         Snackbar.make(binding.root, getString(R.string.welcome_message), Snackbar.LENGTH_LONG).show()
 
+        // Configurar el botón de flecha en el Toolbar (para ir atrás)
         binding.toolbar.toolbarArrow.setOnClickListener {
             finish()
         }
+
+        // Configuración de los datos para el RecyclerView
         imageId = arrayOf(
             R.drawable.mario,
             R.drawable.luigi,
@@ -60,6 +72,7 @@ class ListCharacterActivity : BaseActivity() {
             getString(R.string.bowser_skill)
         )
 
+        // Configurar el RecyclerView
         newRecyclerView = binding.recicleviewPj
         newRecyclerView.layoutManager = LinearLayoutManager(this)
         newRecyclerView.setHasFixedSize(true)
@@ -74,6 +87,7 @@ class ListCharacterActivity : BaseActivity() {
             newArrayList.add(news)
         }
 
+        // Configurar el adaptador del RecyclerView
         newRecyclerView.adapter = ListAdapter(newArrayList, this)
     }
 }

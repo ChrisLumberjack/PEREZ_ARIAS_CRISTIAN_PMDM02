@@ -9,6 +9,7 @@
     tools:context=".MainActivity"
     tools:openDrawer="start">
 
+    <!-- Contenido principal de la actividad -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -16,13 +17,12 @@
         android:id="@+id/main"
         tools:context=".MainActivity">
 
+        <!-- Toolbar con botón de hamburguesa -->
         <include
             android:id="@+id/toolbar"
             layout="@layout/activity_toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
-
-
 
         <ImageView
             android:id="@+id/imageView"
@@ -74,9 +74,9 @@
             app:layout_constraintTop_toBottomOf="@id/textView"
             app:layout_goneMarginLeft="10dp"
             tools:ignore="HardcodedText" />
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 
+    <!-- Drawer Layout (menú lateral) -->
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/nav_view"
         android:layout_width="wrap_content"

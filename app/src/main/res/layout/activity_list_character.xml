@@ -1,38 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/wallpaper">
+    android:background="@drawable/wallpaper"
+    tools:context=".list.ListCharacterActivity">
 
-    <include
-        android:id="@+id/toolbar"
-        layout="@layout/activity_toolbar"
+    <!-- Contenido principal de la actividad -->
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/list_character"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:fontFamily="@font/alfa_slab_one"
-        android:paddingStart="8dp"
-        android:paddingEnd="8dp"
-        android:text="@string/list_character"
-        android:textAlignment="center"
-        android:textColor="@color/white"
-        android:textSize="30sp"
-        app:layout_constraintTop_toBottomOf="@id/toolbar"
-        tools:ignore="HardcodedText"
-        tools:layout_editor_absoluteX="0dp" />
+        <!-- Incluye el Toolbar -->
+        <include
+            android:id="@+id/toolbar"
+            layout="@layout/activity_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recicleviewPj"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/list_character" />
+        <!-- Título principal de la actividad -->
+        <TextView
+            android:id="@+id/list_character"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="@font/alfa_slab_one"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:text="@string/list_character"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="30sp"
+            app:layout_constraintTop_toBottomOf="@id/toolbar"
+            tools:ignore="HardcodedText"
+            tools:layout_editor_absoluteX="0dp" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <!-- RecyclerView para mostrar los personajes -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recicleviewPj"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/list_character" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- Aquí agregamos el NavigationView para el menú lateral -->
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/nav_view"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        app:headerLayout="@layout/nav_header"
+        app:menu="@menu/nav_menu" /> <!-- Aquí se define el menú que mostrará el NavigationView -->
+
+</androidx.drawerlayout.widget.DrawerLayout>
