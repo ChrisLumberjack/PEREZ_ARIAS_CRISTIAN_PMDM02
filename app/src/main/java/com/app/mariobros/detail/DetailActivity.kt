@@ -15,6 +15,7 @@ open class DetailActivity : BaseActivity() {
         binding = ActivityDetailBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        configureDrawer()
         // Configurar el toolbar
         setSupportActionBar(binding.toolbar.toolbar) // Configura el toolbar aquí
         supportActionBar?.title = ""
