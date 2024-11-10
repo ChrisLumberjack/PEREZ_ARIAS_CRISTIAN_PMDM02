@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".HomeFragment">
 
+    <!-- ConstraintLayout que organiza los elementos en la pantalla y tiene un fondo con la imagen de un wallpaper -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/main"
         android:layout_width="match_parent"
@@ -13,8 +14,7 @@
         android:background="@drawable/wallpaper"
         tools:context=".MainActivity">
 
-        <!-- Toolbar con botón de hamburguesa -->
-
+        <!-- ImageView que muestra la imagen de los personajes en la parte superior de la pantalla -->
         <ImageView
             android:id="@+id/imageView"
             android:layout_width="325dp"
@@ -25,6 +25,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/characters" />
 
+        <!-- TextView que muestra el nombre de la aplicación centrado debajo de la imagen -->
         <TextView
             android:id="@+id/textView"
             android:layout_width="0dp"
@@ -41,6 +42,7 @@
             app:layout_constraintTop_toBottomOf="@id/imageView"
             tools:ignore="HardcodedText" />
 
+        <!-- Button que sirve para iniciar la aplicación o la actividad principal, ubicado debajo del nombre de la app -->
         <Button
             android:id="@+id/button"
             android:layout_width="wrap_content"
@@ -53,6 +55,7 @@
             app:layout_constraintTop_toBottomOf="@id/textView"
             tools:ignore="HardcodedText" />
 
+        <!-- Button adicional para salir o cerrar la aplicación, ubicado al lado del primer botón -->
         <Button
             android:id="@+id/button2"
             android:layout_width="wrap_content"

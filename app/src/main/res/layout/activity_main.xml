@@ -9,14 +9,13 @@
     tools:context=".MainActivity"
     tools:openDrawer="start">
 
-    <!-- Toolbar con botón de hamburguesa -->
-
-
+    <!-- LinearLayout que contiene todo el contenido visible de la actividad -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
 
+        <!-- FragmentContainerView es el contenedor donde se mostrarán los fragmentos -->
         <androidx.fragment.app.FragmentContainerView
             android:id="@+id/main_activity_nav_host"
             android:name="androidx.navigation.fragment.NavHostFragment"
@@ -27,21 +26,23 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-             />
+            app:layout_constraintTop_toTopOf="parent" />
 
+        <!-- Incluir el layout de la barra de herramientas (Toolbar) -->
         <include
             android:id="@+id/toolbar"
             layout="@layout/activity_toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
+        <!-- FrameLayout para mostrar el contenido principal, generalmente el fragmento activo -->
         <FrameLayout
             android:id="@+id/fragment_container"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
     </LinearLayout>
-    <!-- Drawer Layout (menú lateral) -->
+
+    <!-- DrawerLayout (menú lateral) -->
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/nav_view"
         android:layout_width="wrap_content"
@@ -49,6 +50,5 @@
         android:layout_gravity="start"
         app:headerLayout="@layout/nav_header"
         app:menu="@menu/nav_menu" />
-
 
 </androidx.drawerlayout.widget.DrawerLayout>

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
+<!-- MaterialCardView es un contenedor que proporciona una tarjeta con bordes redondeados y sombra. -->
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -7,9 +8,9 @@
     android:layout_height="wrap_content"
     android:layout_margin="8dp"
     app:cardCornerRadius="8dp"
-    android:background="@android:color/transparent"
-    tools:context=".list.ListCharacterActivity">
+    android:background="@android:color/transparent">
 
+    <!-- LinearLayout que organiza los elementos de forma horizontal (imagen y texto), centrados verticalmente. -->
     <LinearLayout
         android:id="@+id/itemCard"
         android:layout_width="match_parent"
@@ -19,6 +20,7 @@
         android:background="@android:color/transparent"
         android:padding="8dp">
 
+        <!-- ImageView que muestra una imagen pequeña a la izquierda, con un margen a la derecha. -->
         <ImageView
             android:id="@+id/title_image"
             android:layout_width="50dp"
@@ -27,6 +29,7 @@
             android:contentDescription="Image"
             tools:ignore="HardcodedText,MissingConstraints" />
 
+        <!-- TextView que se ajusta al espacio disponible y muestra el texto principal del item, con un margen horizontal. -->
         <TextView
             android:id="@+id/tvHeading"
             android:layout_width="0dp"
@@ -38,6 +41,5 @@
             android:textSize="14sp" />
 
     </LinearLayout>
-
 
 </com.google.android.material.card.MaterialCardView>

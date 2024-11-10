@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- LinearLayout que organiza sus hijos de forma vertical y tiene un fondo negro. -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="176dp"
@@ -6,27 +7,29 @@
     android:background="@color/black"
     android:gravity="bottom"
     android:padding="16dp"
-    android:theme="@style/ThemeOverlay.AppCompat.Dark"
-    >
+    android:theme="@style/ThemeOverlay.AppCompat.Dark">
 
+    <!-- ImageView que muestra una imagen con un tamaño fijo (144dp x 84dp). -->
     <ImageView
         android:layout_width="144dp"
         android:layout_height="84dp"
         android:src="@drawable/characters" />
 
+    <!-- TextView para mostrar el texto "Mario Bros Application" en color blanco y en negrita. -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Mario Bros Application"
         android:textColor="@color/white"
-        android:textStyle="bold"/>
+        android:textStyle="bold" />
+
+    <!-- TextView que muestra un correo electrónico en color blanco, con tamaño de texto de 14dp. -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="cristianperezarias90@gmail.com"
         android:textColor="@color/white"
         android:textSize="14dp"
-        android:layout_marginBottom="16dp"/>
-
+        android:layout_marginBottom="16dp" />
 
 </LinearLayout>

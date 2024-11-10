@@ -8,71 +8,78 @@ import android.view.ViewGroup
 import com.app.mariobros.databinding.FragmentHomeBinding
 import kotlin.system.exitProcess
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
+// TODO: Renombrar los parámetros para que coincidan con los nombres que se usan al inicializar el fragmento.
+// Ejemplo: usar ARG_ITEM_NUMBER si ese es el caso.
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
 
 /**
- * A simple [Fragment] subclass.
- * Use the [HomeFragment.newInstance] factory method to
- * create an instance of this fragment.
+ * Fragmento de inicio simple, donde el usuario puede navegar a otros fragmentos o cerrar la aplicación.
+ * Usa el método de fábrica [HomeFragment.newInstance] para crear una nueva instancia de este fragmento.
  */
 class HomeFragment : Fragment() {
+    // Variable para el enlace a la vista (Binding). Usada para acceder de manera segura a las vistas del fragmento.
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
 
-    // TODO: Rename and change types of parameters
+    // Parámetros que se pasan al fragmento desde el fragmento anterior o la actividad
     private var param1: String? = null
     private var param2: String? = null
 
+    /**
+     * Método que se ejecuta al crear el fragmento. Aquí se recuperan los argumentos pasados a través de un `Bundle`.
+     */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        // Recuperar los argumentos enviados al fragmento.
         arguments?.let {
             param1 = it.getString(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
         }
-
     }
 
+    /**
+     * Este método infla el layout del fragmento y realiza la configuración de los botones.
+     */
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        _binding = FragmentHomeBinding.inflate(inflater,container,false)
-        // Configurar botones de la actividad
+        // Inflar el layout del fragmento y asignar el binding.
+        _binding = FragmentHomeBinding.inflate(inflater, container, false)
+
+        // Configuración del primer botón. Al hacer clic, se navega al fragmento ListCharactersFragment.
         binding.button.setOnClickListener {
+            // Se inicia una transacción de fragmentos, reemplazando el fragmento actual con ListCharactersFragment.
             parentFragmentManager.beginTransaction()
-                .replace(R.id.fragment_container, ListCharactersFragment.newInstance("", ""))
-                .addToBackStack(null) // Permitir volver al fragmento anterior
-                .commit()
+                .replace(R.id.fragment_container, ListCharactersFragment.newInstance("", "")) // Reemplazar con ListCharactersFragment.
+                .addToBackStack(null) // Se agrega a la pila de retroceso para poder volver a este fragmento más tarde.
+                .commit() // Confirmar la transacción.
         }
 
+        // Configuración del segundo botón. Al hacer clic, se cierra la aplicación.
         binding.button2.setOnClickListener {
+            // exitProcess(1) termina la aplicación de manera abrupta. 1 es el código de salida.
             exitProcess(1)
         }
 
-        // Configurar el Toolbar
+        // Configurar el Toolbar (sin código aquí, probablemente se configura en otro lugar).
 
-
-        return binding.root
+        return binding.root // Retornar la vista raíz del fragmento para que se muestre en la interfaz.
     }
 
     companion object {
         /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment home.
+         * Método de fábrica para crear una nueva instancia del fragmento con los parámetros proporcionados.
+         * @param param1 Primer parámetro a pasar al fragmento.
+         * @param param2 Segundo parámetro a pasar al fragmento.
+         * @return Una nueva instancia del fragmento HomeFragment.
          */
-        // TODO: Rename and change types and number of parameters
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
             HomeFragment().apply {
                 arguments = Bundle().apply {
+                    // Guardar los parámetros en el `Bundle` para que el fragmento pueda acceder a ellos más tarde.
                     putString(ARG_PARAM1, param1)
                     putString(ARG_PARAM2, param2)
                 }
