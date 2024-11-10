@@ -1,14 +1,15 @@
 package com.app.mariobros.list
 
-import android.content.Context
-import android.content.Intent
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.fragment.app.FragmentManager
 import androidx.recyclerview.widget.RecyclerView
+import com.app.mariobros.DetailsFragment
+import com.app.mariobros.R
 import com.app.mariobros.databinding.ItemCharacterBinding
-import com.app.mariobros.detail.DetailActivity
 
-class ListAdapter(private val newsListado: ArrayList<List>, private val context: Context) :
+class ListAdapter(private val newsListado: ArrayList<List>, private val fragmentManager: FragmentManager) :
     RecyclerView.Adapter<ListAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -22,20 +23,30 @@ class ListAdapter(private val newsListado: ArrayList<List>, private val context:
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val currentItem = newsListado[position]
-        holder.bind(currentItem, context)
+        holder.bind(currentItem, fragmentManager)
     }
 
     class ViewHolder(private val binding: ItemCharacterBinding) : RecyclerView.ViewHolder(binding.root) {
-        fun bind(listado: List, context: Context) {
+        fun bind(listado: List, fragmentManager: FragmentManager) {
             binding.titleImage.setImageResource(listado.titleImage)
             binding.tvHeading.text = listado.Heading
             binding.root.setOnClickListener {
-                val intent = Intent(context, DetailActivity::class.java).apply {
-                    putExtra("IMAGE_ID", listado.titleImage)
-                    putExtra("HEADING", listado.Heading)
-                    putExtra("SKILL", listado.Skills)
+                val imageId = listado.titleImage
+                val heading = listado.Heading
+                val skill = listado.Skills
+
+                val detailsFragment = DetailsFragment().apply {
+                    arguments = Bundle().apply {
+                        putInt("IMAGE_ID", imageId)
+                        putString("HEADING", heading)
+                        putString("SKILL", skill)
+                    }
                 }
-                context.startActivity(intent)
+
+                fragmentManager.beginTransaction()
+                    .replace(R.id.fragment_container, detailsFragment) // Asegúrate de que 'fragment_container' es el ID de tu contenedor de fragmentos
+                    .addToBackStack(null) // Opcional: agrega esta transacción a la pila de retroceso
+                    .commit()
             }
         }
     }
