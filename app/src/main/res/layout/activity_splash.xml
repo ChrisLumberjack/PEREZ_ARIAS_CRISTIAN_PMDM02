@@ -9,9 +9,10 @@
     <!-- ImageView que muestra el logo de la aplicación -->
     <ImageView
         android:id="@+id/splash_image"
-        android:layout_width="300dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
+        android:layout_marginStart="52dp"
         android:layout_marginEnd="52dp"
         android:contentDescription="Logo de la aplicación"
         android:src="@drawable/characters" />

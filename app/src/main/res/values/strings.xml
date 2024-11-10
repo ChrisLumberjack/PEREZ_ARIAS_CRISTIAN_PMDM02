@@ -1,6 +1,7 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">Aplicación Mario Bros</string>
-    <string name="language">Español</string>
+    <string name="home_drawer">Inicio</string>
+    <string name="settings_drawer">Ajustes</string>
     <string name="start_main">Inicio</string>
     <string name="exit_main">Salir</string>
     <string name="list_character">Lista de personajes</string>

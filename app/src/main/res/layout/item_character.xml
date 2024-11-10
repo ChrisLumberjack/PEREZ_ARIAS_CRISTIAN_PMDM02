@@ -7,9 +7,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="8dp"
-    app:cardCornerRadius="8dp"
-    android:background="@android:color/transparent">
-
+    app:cardCornerRadius="8dp">
     <!-- LinearLayout que organiza los elementos de forma horizontal (imagen y texto), centrados verticalmente. -->
     <LinearLayout
         android:id="@+id/itemCard"
@@ -17,7 +15,6 @@
         android:layout_height="wrap_content"
         android:gravity="center_vertical"
         android:orientation="horizontal"
-        android:background="@android:color/transparent"
         android:padding="8dp">
 
         <!-- ImageView que muestra una imagen pequeña a la izquierda, con un margen a la derecha. -->
@@ -37,7 +34,7 @@
             android:layout_weight="1"
             android:paddingStart="8dp"
             android:paddingEnd="8dp"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:textSize="14sp" />
 
     </LinearLayout>

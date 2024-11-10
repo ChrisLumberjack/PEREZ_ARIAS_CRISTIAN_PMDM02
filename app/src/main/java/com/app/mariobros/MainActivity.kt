@@ -33,8 +33,8 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         drawerLayout = binding.drawerLayout
 
         // Configurar el Toolbar
-        val toolbar = binding.toolbar.toolbar1
-        setSupportActionBar(binding.toolbar.toolbar1)
+        val toolbar = binding.toolbar
+        setSupportActionBar(binding.toolbar)
         supportActionBar?.title = "" // Sin título en el ActionBar
 
         // Configurar la vista de navegación lateral (NavigationView)
@@ -54,7 +54,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         }
 
         // Configurar el botón de la flecha en el Toolbar para regresar
-        binding.toolbar.toolbarArrow.setOnClickListener {
+        binding.toolbarArrow.setOnClickListener {
             val currentFragment = supportFragmentManager.findFragmentById(R.id.fragment_container)
             if (currentFragment is HomeFragment) {
                 finish()  // Si el fragmento actual es HomeFragment, cerrar la actividad
