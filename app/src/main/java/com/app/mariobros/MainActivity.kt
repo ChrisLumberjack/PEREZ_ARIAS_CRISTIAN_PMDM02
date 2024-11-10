@@ -31,9 +31,9 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         drawerLayout = binding.drawerLayout
 
 
-        val toolbar = binding.toolbar.toolbar
+        val toolbar = binding.toolbar.toolbar1
         // Configurar el Toolbar
-        setSupportActionBar(binding.toolbar.toolbar)
+        setSupportActionBar(binding.toolbar.toolbar1)
         supportActionBar?.title = ""
 
         val navigationView = binding.navView
@@ -50,12 +50,11 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         }
         // Configurar el botón de la flecha en el Toolbar (ir atrás)
         binding.toolbar.toolbarArrow.setOnClickListener {
-
-            if (fragmentManager.equals(HomeFragment())) {
-                this.finish()
+            val currentFragment = supportFragmentManager.findFragmentById(R.id.fragment_container)
+            if (currentFragment is HomeFragment) {
+                finish()  // Si el fragmento actual es HomeFragment, cierra la actividad
             } else {
-
-                onBackPressed()
+                onBackPressed()  // De lo contrario, realiza la acción de "back"
             }
         }
     }
@@ -105,6 +104,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.nav_home -> replaceFragment(HomeFragment())
+            R.id.nav_settings -> replaceFragment(SettingsFragment()) // Nuevo fragmento de ajustes
         }
         return true
     }
@@ -115,12 +115,11 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         transaction.commit()
     }
 
-    @SuppressLint("MissingSuperCall")
     override fun onBackPressed() {
         if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
             drawerLayout.closeDrawer(GravityCompat.START)
         } else {
-            onBackPressedDispatcher.onBackPressed()
+            super.onBackPressed()  // Llamar a la superclase para manejar el back correctamente
         }
     }
 

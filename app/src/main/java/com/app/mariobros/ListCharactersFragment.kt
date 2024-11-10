@@ -12,9 +12,6 @@ import com.app.mariobros.list.ListAdapter
 import com.google.android.material.snackbar.Snackbar
 import com.app.mariobros.list.List
 
-
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
 
@@ -32,7 +29,6 @@ class ListCharactersFragment : Fragment() {
     lateinit var heading: Array<String>
     lateinit var skill: Array<String>
 
-    // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
 
@@ -48,15 +44,10 @@ class ListCharactersFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         _binding = FragmentListcharactersBinding.inflate(inflater, container, false)
-
-        // Configurar el Toolbar
 
         // Mostrar un Snackbar con un mensaje de bienvenida
         Snackbar.make(binding.root, getString(R.string.welcome_message), Snackbar.LENGTH_LONG).show()
-
-        // Configurar el botón de flecha en el Toolbar (para ir atrás)
 
         // Configuración de los datos para el RecyclerView
         imageId = arrayOf(
@@ -96,7 +87,6 @@ class ListCharactersFragment : Fragment() {
         newRecyclerView.layoutManager = LinearLayoutManager(activity)
         newRecyclerView.setHasFixedSize(true)
         newArrayList = arrayListOf<List>()
-
         getUserData()
 
         return binding.root
@@ -108,8 +98,7 @@ class ListCharactersFragment : Fragment() {
             newArrayList.add(news)
         }
 
-        // Configurar el adaptador del RecyclerView
-        newRecyclerView.adapter = ListAdapter(newArrayList, parentFragmentManager)  // Aquí pasamos el FragmentManager
+        newRecyclerView.adapter = ListAdapter(newArrayList, parentFragmentManager)
     }
 
     override fun onDestroyView() {
@@ -118,15 +107,6 @@ class ListCharactersFragment : Fragment() {
     }
 
     companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment listcharacters.
-         */
-        // TODO: Rename and change types and number of parameters
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
             ListCharactersFragment().apply {

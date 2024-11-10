@@ -1,4 +1,5 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="language">English</string>
     <string name="app_name">Mario Bros Application</string>
     <string name="start_main">Start</string>
     <string name="exit_main">Exit</string>
