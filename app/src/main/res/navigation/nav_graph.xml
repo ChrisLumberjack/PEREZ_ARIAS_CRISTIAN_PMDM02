@@ -2,4 +2,32 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/nav_graph" />
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homeFragment3"> <!-- Esto establece el fragmento de inicio -->
+
+    <!-- Definimos los fragmentos dentro de la navegación -->
+    <fragment
+        android:id="@+id/homeFragment3"
+        android:name="com.app.mariobros.HomeFragment"
+        android:label="fragment_home"
+        app:defaultNavHost="true"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/listCharactersFragment"
+        android:name="com.app.mariobros.ListCharactersFragment"
+        android:label="fragment_listcharacters"
+        tools:layout="@layout/fragment_listcharacters" />
+
+    <fragment
+        android:id="@+id/detailsFragment"
+        android:name="com.app.mariobros.DetailsFragment"
+        android:label="fragment_details"
+        tools:layout="@layout/fragment_details" />
+
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.app.mariobros.SettingsFragment"
+        android:label="fragment_settings"
+        tools:layout="@layout/fragment_settings" />
+</navigation>

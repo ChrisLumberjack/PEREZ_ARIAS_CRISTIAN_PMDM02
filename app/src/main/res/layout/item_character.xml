@@ -7,6 +7,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="8dp"
+    android:background="@color/black"
     app:cardCornerRadius="8dp">
     <!-- LinearLayout que organiza los elementos de forma horizontal (imagen y texto), centrados verticalmente. -->
     <LinearLayout
@@ -14,6 +15,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_vertical"
+        android:background="@color/black"
         android:orientation="horizontal"
         android:padding="8dp">
 
