@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController // Importante para usar NavController en lugar de FragmentManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.app.mariobros.databinding.FragmentListcharactersBinding
@@ -119,8 +120,8 @@ class ListCharactersFragment : Fragment() {
             newArrayList.add(news) // Agregar el objeto 'List' a la lista
         }
 
-        // Configurar el adaptador del RecyclerView con la lista de personajes y el FragmentManager
-        newRecyclerView.adapter = ListAdapter(newArrayList, parentFragmentManager)
+        // Configurar el adaptador del RecyclerView con la lista de personajes y el NavController
+        newRecyclerView.adapter = ListAdapter(newArrayList, findNavController()) // Usar 'findNavController' en lugar de 'parentFragmentManager'
     }
 
     /**

@@ -9,6 +9,18 @@
     tools:context=".MainActivity"
     tools:openDrawer="start">
 
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fragment_container"
+        android:name="androidx.navigation.fragment.NavHostFragment"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:defaultNavHost="true"
+        app:layout_constraintBottom_toTopOf="@+id/bottom_nav_view"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:navGraph="@navigation/nav_graph" />
     <!-- LinearLayout que contiene todo el contenido visible de la actividad -->
     <LinearLayout
         android:layout_width="match_parent"
@@ -16,18 +28,7 @@
         android:orientation="vertical">
 
         <!-- FragmentContainerView es el contenedor donde se mostrarán los fragmentos -->
-        <androidx.fragment.app.FragmentContainerView
-            android:id="@+id/main_activity_nav_host"
-            android:name="androidx.navigation.fragment.NavHostFragment"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            app:defaultNavHost="true"
-            app:layout_constraintBottom_toTopOf="@+id/bottom_nav_view"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:navGraph="@navigation/nav_graph"
-            app:layout_constraintTop_toTopOf="parent" />
+
 
         <!-- Incluir el layout de la barra de herramientas (Toolbar) -->
         <androidx.appcompat.widget.Toolbar
@@ -61,11 +62,8 @@
                 android:textColor="@color/white" />
         </androidx.appcompat.widget.Toolbar>
 
-        <!-- FrameLayout para mostrar el contenido principal, generalmente el fragmento activo -->
-        <FrameLayout
-            android:id="@+id/fragment_container"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+
+
     </LinearLayout>
 
     <!-- DrawerLayout (menú lateral) -->

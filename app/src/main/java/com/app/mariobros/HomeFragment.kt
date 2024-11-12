@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import com.app.mariobros.databinding.FragmentHomeBinding
 import kotlin.system.exitProcess
 
@@ -50,11 +51,7 @@ class HomeFragment : Fragment() {
 
         // Configuración del primer botón. Al hacer clic, se navega al fragmento ListCharactersFragment.
         binding.button.setOnClickListener {
-            // Se inicia una transacción de fragmentos, reemplazando el fragmento actual con ListCharactersFragment.
-            parentFragmentManager.beginTransaction()
-                .replace(R.id.fragment_container, ListCharactersFragment.newInstance("", "")) // Reemplazar con ListCharactersFragment.
-                .addToBackStack(null) // Se agrega a la pila de retroceso para poder volver a este fragmento más tarde.
-                .commit() // Confirmar la transacción.
+            findNavController().navigate(R.id.action_homeFragment_to_listCharactersFragment)
         }
 
         // Configuración del segundo botón. Al hacer clic, se cierra la aplicación.

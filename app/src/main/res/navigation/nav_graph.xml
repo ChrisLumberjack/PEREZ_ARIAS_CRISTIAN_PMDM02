@@ -3,21 +3,33 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/homeFragment3"> <!-- Esto establece el fragmento de inicio -->
+    app:startDestination="@id/homeFragment"> <!-- Esto establece el fragmento de inicio -->
 
     <!-- Definimos los fragmentos dentro de la navegación -->
     <fragment
-        android:id="@+id/homeFragment3"
+        android:id="@+id/homeFragment"
         android:name="com.app.mariobros.HomeFragment"
-        android:label="fragment_home"
-        app:defaultNavHost="true"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_listCharactersFragment"
+            app:destination="@id/listCharactersFragment" />
+        <action
+            android:id="@+id/action_homeFragment_self"
+            app:destination="@id/homeFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/listCharactersFragment"
         android:name="com.app.mariobros.ListCharactersFragment"
         android:label="fragment_listcharacters"
-        tools:layout="@layout/fragment_listcharacters" />
+        tools:layout="@layout/fragment_listcharacters" >
+        <action
+            android:id="@+id/action_listCharactersFragment_to_detailsFragment"
+            app:destination="@id/detailsFragment" />
+        <action
+            android:id="@+id/action_listCharactersFragment_self"
+            app:destination="@id/listCharactersFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/detailsFragment"
@@ -29,5 +41,9 @@
         android:id="@+id/settingsFragment"
         android:name="com.app.mariobros.SettingsFragment"
         android:label="fragment_settings"
-        tools:layout="@layout/fragment_settings" />
+        tools:layout="@layout/fragment_settings" >
+        <action
+            android:id="@+id/action_settingsFragment_self"
+            app:destination="@id/settingsFragment" />
+    </fragment>
 </navigation>
