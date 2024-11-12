@@ -9,9 +9,9 @@ import androidx.navigation.fragment.findNavController // Importante para usar Na
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.app.mariobros.databinding.FragmentListcharactersBinding
-import com.app.mariobros.list.ListAdapter
 import com.google.android.material.snackbar.Snackbar
 import com.app.mariobros.list.List
+import com.app.mariobros.list.ListAdapter
 
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"

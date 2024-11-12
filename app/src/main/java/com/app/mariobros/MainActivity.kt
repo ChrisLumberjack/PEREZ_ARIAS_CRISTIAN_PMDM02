@@ -41,6 +41,7 @@ class MainActivity : AppCompatActivity() {
         drawerLayout.addDrawerListener(toggle)
         toggle.syncState()
 
+
         // Configurar la navegación con el NavController
         val navHostFragment =
             supportFragmentManager.findFragmentById(R.id.fragment_container) as NavHostFragment
@@ -56,13 +57,17 @@ class MainActivity : AppCompatActivity() {
             onNavigationItemSelected(item, navController)
             true
         }
-
+        binding.toolbarArrow.setOnClickListener {
+            onBackPressed()
+        }
         // Evitar que el título cambie cuando navegas entre fragments
         navController.addOnDestinationChangedListener { _, destination, _ ->
-            supportActionBar?.title = "" // Título vacío para no cambiar
-            if (destination.id == R.id.homeFragment || destination.id == R.id.settingsFragment) {
-                // Puedes personalizar el comportamiento para evitar el cambio de ícono de hamburguesa
-                supportActionBar?.setDisplayHomeAsUpEnabled(true)  // Mostrar el ícono de hamburguesa siempre
+            supportActionBar?.apply {
+                setDisplayHomeAsUpEnabled(true)  // Mostrar el ícono de hamburguesa
+                setHomeAsUpIndicator(R.drawable.baseline_menu_24) // Ícono de hamburguesa personalizado
+
+                // Opcional: Actualizar el título de la barra de acción si es necesario
+                title = ""
             }
         }
     }

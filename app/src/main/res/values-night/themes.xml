@@ -3,6 +3,8 @@
     <style name="Base.Theme.MarioBros" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your dark theme here. -->
         <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
+        <item name="android:actionOverflowButtonStyle">@style/OverflowButtonStyle</item>
+
     </style>
 
     <style name="Theme.MarioBros" parent="Base.Theme.MarioBros" />
@@ -11,4 +13,6 @@
         <item name="android:tint">@color/white</item>
         <item name="android:src">@drawable/baseline_menu_24</item>
     </style>
+
+
 </resources>
