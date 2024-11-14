@@ -7,7 +7,9 @@ import android.view.ViewGroup
 import android.widget.Switch
 import android.widget.TextView
 import android.widget.Toast
+import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
+import androidx.navigation.findNavController
 import com.app.mariobros.databinding.FragmentSettingsBinding
 
 class SettingsFragment : Fragment() {
@@ -31,6 +33,7 @@ class SettingsFragment : Fragment() {
 
         // Actualizar el texto del Switch según el idioma guardado
         updateSwitchText(language)
+
 
         // Configuración del listener (escuchador) para el switch
         // Esto nos permitirá cambiar el idioma cuando el usuario cambie la posición del switch

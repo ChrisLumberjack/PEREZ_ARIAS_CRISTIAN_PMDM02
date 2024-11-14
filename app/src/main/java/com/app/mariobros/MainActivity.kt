@@ -17,12 +17,20 @@ import androidx.navigation.ui.NavigationUI
 import com.app.mariobros.databinding.ActivityMainBinding
 import com.google.android.material.navigation.NavigationView
 
+/**
+ * MainActivity es el punto de entrada para la aplicación.
+ * Maneja la configuración del Navigation Drawer y la Toolbar, así como las acciones del menú.
+ */
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
     private lateinit var drawerLayout: DrawerLayout
     private lateinit var appBarConfiguration: AppBarConfiguration
 
+    /**
+     * Se llama cuando la actividad está comenzando. Aquí es donde debe ir la mayoría de la inicialización.
+     * @param savedInstanceState Si la actividad está siendo re-inicializada después de haber sido previamente cerrada, entonces este Bundle contiene los datos más recientes que se suministraron.
+     */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -40,7 +48,6 @@ class MainActivity : AppCompatActivity() {
         )
         drawerLayout.addDrawerListener(toggle)
         toggle.syncState()
-
 
         // Configurar la navegación con el NavController
         val navHostFragment =
@@ -60,6 +67,7 @@ class MainActivity : AppCompatActivity() {
         binding.toolbarArrow.setOnClickListener {
             onBackPressed()
         }
+
         // Evitar que el título cambie cuando navegas entre fragments
         navController.addOnDestinationChangedListener { _, destination, _ ->
             supportActionBar?.apply {
@@ -72,7 +80,11 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    // Inflar el menú de opciones
+    /**
+     * Infla el menú de opciones.
+     * @param menu El menú de opciones en el que se colocan los ítems.
+     * @return Boolean Devuelve verdadero si el menú se infla correctamente.
+     */
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.toolbar_menu, menu)
         menu?.let {
@@ -84,7 +96,11 @@ class MainActivity : AppCompatActivity() {
         return true
     }
 
-    // Manejar las selecciones del menú
+    /**
+     * Maneja las selecciones del menú.
+     * @param item El ítem del menú seleccionado.
+     * @return Boolean Devuelve verdadero si el ítem se maneja correctamente.
+     */
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.inicio -> {
@@ -106,6 +122,9 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    /**
+     * Muestra un cuadro de diálogo con información "Acerca de".
+     */
     private fun mostrarAcercaDeDialog() {
         val builder = AlertDialog.Builder(this)
         builder.setTitle(R.string.about)  // Título del diálogo
@@ -115,7 +134,11 @@ class MainActivity : AppCompatActivity() {
         builder.create().show()  // Crear y mostrar el diálogo
     }
 
-    // Manejar los ítems seleccionados en el DrawerLayout
+    /**
+     * Maneja los ítems seleccionados en el DrawerLayout.
+     * @param item El ítem del NavigationView seleccionado.
+     * @param navController El controlador de navegación.
+     */
     private fun onNavigationItemSelected(item: MenuItem, navController: NavController) {
         when (item.itemId) {
             R.id.nav_home -> {
@@ -133,7 +156,11 @@ class MainActivity : AppCompatActivity() {
         drawerLayout.closeDrawer(GravityCompat.START)
     }
 
-    // Navegar a un destino específico
+    /**
+     * Navega a un destino específico.
+     * @param destinationId El ID del destino al que se debe navegar.
+     * @param navController El controlador de navegación, opcionalmente predeterminado al del fragmento contenedor.
+     */
     private fun navigateTo(
         destinationId: Int,
         navController: NavController = findNavController(R.id.fragment_container)
@@ -144,7 +171,9 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    // Manejar la acción de retroceso
+    /**
+     * Maneja la acción de retroceso.
+     */
     override fun onBackPressed() {
         if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
             drawerLayout.closeDrawer(GravityCompat.START)
